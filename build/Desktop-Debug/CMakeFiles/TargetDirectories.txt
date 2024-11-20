@@ -1,0 +1,9 @@
+/home/cippzz/autoirriga/build/Desktop-Debug/CMakeFiles/autoirriga.dir
+/home/cippzz/autoirriga/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/cippzz/autoirriga/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/cippzz/autoirriga/build/Desktop-Debug/CMakeFiles/list_install_components.dir
+/home/cippzz/autoirriga/build/Desktop-Debug/CMakeFiles/install.dir
+/home/cippzz/autoirriga/build/Desktop-Debug/CMakeFiles/install/local.dir
+/home/cippzz/autoirriga/build/Desktop-Debug/CMakeFiles/install/strip.dir
+/home/cippzz/autoirriga/build/Desktop-Debug/CMakeFiles/autoirriga_autogen_timestamp_deps.dir
+/home/cippzz/autoirriga/build/Desktop-Debug/CMakeFiles/autoirriga_autogen.dir

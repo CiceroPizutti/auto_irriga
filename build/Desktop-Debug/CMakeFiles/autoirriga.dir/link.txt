@@ -1,0 +1,1 @@
+/usr/bin/g++-11 -DQT_QML_DEBUG -g CMakeFiles/autoirriga.dir/autoirriga_autogen/mocs_compilation.cpp.o CMakeFiles/autoirriga.dir/main.cpp.o CMakeFiles/autoirriga.dir/mainwindow.cpp.o -o autoirriga  /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.13 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.13 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.13 

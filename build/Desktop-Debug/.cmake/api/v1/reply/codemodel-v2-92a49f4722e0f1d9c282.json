@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-1ebe8a37a3633109806a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "autoirriga",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "autoirriga::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-autoirriga-Debug-06437d039d474b45b4f0.json",
+					"name" : "autoirriga",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "autoirriga_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-autoirriga_autogen-Debug-170af2570f41b8f18d4c.json",
+					"name" : "autoirriga_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "autoirriga_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-autoirriga_autogen_timestamp_deps-Debug-1e75d32ae1c3968cef4f.json",
+					"name" : "autoirriga_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/cippzz/autoirriga/build/Desktop-Debug",
+		"source" : "/home/cippzz/autoirriga"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
