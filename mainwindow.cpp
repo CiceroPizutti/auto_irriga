@@ -4,6 +4,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , irrigacaoLigada(false) // Inicializa a irrigação como desligada
 {
     ui->setupUi(this);
 
@@ -24,7 +25,11 @@ MainWindow::MainWindow(QWidget *parent)
     } else {
         qDebug() << "Erro ao abrir a porta serial!";
     }
+
+    ui->irrigar_pushButton->setText("Ligar a Irrigação");
+
 }
+
 
 MainWindow::~MainWindow()
 {
@@ -47,7 +52,7 @@ void MainWindow::readSerialData() {
 
             // Compara a umidade lida com o valor do QSlider
             int sliderValue = ui->porcento_horizontalSlider->value();
-            if (humidity < sliderValue) {
+            if (humidity < sliderValue && (irrigacaoLigada==true)) {
                 // Enviar '1' para o Arduino para ligar o relé
                 serial->write("1");
             } else {
@@ -55,5 +60,19 @@ void MainWindow::readSerialData() {
                 serial->write("0");
             }
         }
+    }
+}
+
+
+void MainWindow::on_irrigar_pushButton_clicked()
+{
+    irrigacaoLigada = !irrigacaoLigada; // Alterna o estado
+
+    if (irrigacaoLigada) {
+        ui->irrigar_pushButton->setText("Irrigação Ligada");
+        ui->irrigar_pushButton->setStyleSheet("color: lightgreen; font-weight: bold;"); // Cor do texto
+    } else {
+        ui->irrigar_pushButton->setText("Ligar a Irrigação");
+        ui->irrigar_pushButton->setStyleSheet(""); // Reseta o estilo
     }
 }

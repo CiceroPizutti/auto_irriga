@@ -81,16 +81,9 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="iniciar_pushButton">
+     <widget class="QPushButton" name="irrigar_pushButton">
       <property name="text">
-       <string>Iniciar Irrigação</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="parar_pushButton">
-      <property name="text">
-       <string>Parar Irrigação</string>
+       <string/>
       </property>
      </widget>
     </item>

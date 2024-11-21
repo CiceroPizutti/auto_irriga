@@ -33,8 +33,7 @@ public:
     QLabel *ativar_status_label;
     QSlider *porcento_horizontalSlider;
     QLabel *porcentagem_label;
-    QPushButton *iniciar_pushButton;
-    QPushButton *parar_pushButton;
+    QPushButton *irrigar_pushButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -87,15 +86,10 @@ public:
 
         verticalLayout->addWidget(porcentagem_label, 0, Qt::AlignHCenter);
 
-        iniciar_pushButton = new QPushButton(centralwidget);
-        iniciar_pushButton->setObjectName(QString::fromUtf8("iniciar_pushButton"));
+        irrigar_pushButton = new QPushButton(centralwidget);
+        irrigar_pushButton->setObjectName(QString::fromUtf8("irrigar_pushButton"));
 
-        verticalLayout->addWidget(iniciar_pushButton);
-
-        parar_pushButton = new QPushButton(centralwidget);
-        parar_pushButton->setObjectName(QString::fromUtf8("parar_pushButton"));
-
-        verticalLayout->addWidget(parar_pushButton);
+        verticalLayout->addWidget(irrigar_pushButton);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -117,8 +111,7 @@ public:
         umidade_label->setText(QCoreApplication::translate("MainWindow", "Umidade do Solo:", nullptr));
         ativar_status_label->setText(QCoreApplication::translate("MainWindow", "Ativar irriga\303\247\303\243o quando umidade for menor que (%)", nullptr));
         porcentagem_label->setText(QString());
-        iniciar_pushButton->setText(QCoreApplication::translate("MainWindow", "Iniciar Irriga\303\247\303\243o", nullptr));
-        parar_pushButton->setText(QCoreApplication::translate("MainWindow", "Parar Irriga\303\247\303\243o", nullptr));
+        irrigar_pushButton->setText(QString());
     } // retranslateUi
 
 };

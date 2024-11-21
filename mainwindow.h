@@ -24,9 +24,12 @@ public:
 private slots:
     void on_porcento_horizontalSlider_valueChanged(int value);
     void readSerialData();  // Declaração do método
+    void on_irrigar_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QSerialPort *serial;
     QTimer *timer;
+    bool irrigacaoLigada;
 };
 #endif // MAINWINDOW_H
