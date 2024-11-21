@@ -57,7 +57,7 @@ public:
 
         progressBar = new QProgressBar(centralwidget);
         progressBar->setObjectName(QString::fromUtf8("progressBar"));
-        progressBar->setValue(24);
+        progressBar->setValue(0);
 
         verticalLayout->addWidget(progressBar);
 
