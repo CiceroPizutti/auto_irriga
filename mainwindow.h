@@ -1,6 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include <QSerialPort>
+#include <QSerialPortInfo>
+#include <QTimer> // Para ler o valor periodicamente
+#include <QDebug>
 
 #include <QMainWindow>
 
@@ -20,8 +23,10 @@ public:
 
 private slots:
     void on_porcento_horizontalSlider_valueChanged(int value);
-
+    void readSerialData();  // Declaração do método
 private:
     Ui::MainWindow *ui;
+    QSerialPort *serial;
+    QTimer *timer;
 };
 #endif // MAINWINDOW_H
