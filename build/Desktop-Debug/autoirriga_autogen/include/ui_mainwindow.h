@@ -28,6 +28,7 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
+    QLabel *clima_label;
     QLabel *umidade_label;
     QProgressBar *progressBar;
     QLabel *ativar_status_label;
@@ -48,6 +49,11 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         verticalLayout = new QVBoxLayout(centralwidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        clima_label = new QLabel(centralwidget);
+        clima_label->setObjectName(QString::fromUtf8("clima_label"));
+
+        verticalLayout->addWidget(clima_label);
+
         umidade_label = new QLabel(centralwidget);
         umidade_label->setObjectName(QString::fromUtf8("umidade_label"));
         QFont font;
@@ -114,6 +120,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        clima_label->setText(QString());
         umidade_label->setText(QCoreApplication::translate("MainWindow", "Umidade do Solo:", nullptr));
         ativar_status_label->setText(QCoreApplication::translate("MainWindow", "Ativar irriga\303\247\303\243o quando umidade for menor que (%)", nullptr));
         porcentagem_label->setText(QString());

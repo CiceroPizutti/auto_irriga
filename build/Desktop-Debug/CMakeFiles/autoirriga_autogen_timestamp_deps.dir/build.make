@@ -67,9 +67,11 @@ include CMakeFiles/autoirriga_autogen_timestamp_deps.dir/compiler_depend.make
 include CMakeFiles/autoirriga_autogen_timestamp_deps.dir/progress.make
 
 CMakeFiles/autoirriga_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.13
+CMakeFiles/autoirriga_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt5Network.so.5.15.13
+CMakeFiles/autoirriga_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.13
 CMakeFiles/autoirriga_autogen_timestamp_deps: /usr/lib/qt5/bin/moc
-CMakeFiles/autoirriga_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt5SerialPort.so.5.15.13
 CMakeFiles/autoirriga_autogen_timestamp_deps: /usr/lib/qt5/bin/uic
+CMakeFiles/autoirriga_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt5SerialPort.so.5.15.13
 
 autoirriga_autogen_timestamp_deps: CMakeFiles/autoirriga_autogen_timestamp_deps
 autoirriga_autogen_timestamp_deps: CMakeFiles/autoirriga_autogen_timestamp_deps.dir/build.make

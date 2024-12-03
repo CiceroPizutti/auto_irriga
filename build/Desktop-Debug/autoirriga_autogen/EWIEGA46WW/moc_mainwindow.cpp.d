@@ -241,9 +241,17 @@
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QDateTime \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QFile \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QFlags \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QIODevice \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaType \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QObject \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QPair \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QSharedDataPointer \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QTextStream \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QUrl \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QVector \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
@@ -259,6 +267,7 @@
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainerfwd.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainertools_impl.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcryptographichash.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdatastream.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdatetime.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
@@ -338,6 +347,24 @@
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiglobal.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/QNetworkAccessManager \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/QNetworkReply \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/QNetworkRequest \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/QSslConfiguration \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/QSslPreSharedKeyAuthenticator \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/qabstractsocket.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkaccessmanager.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkreply.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkrequest.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/qssl.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslcertificate.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslconfiguration.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslerror.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslpresharedkeyauthenticator.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslsocket.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtcpsocket.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtnetwork-config.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtnetworkglobal.h \
   /usr/include/x86_64-linux-gnu/qt5/QtSerialPort/QSerialPort \
   /usr/include/x86_64-linux-gnu/qt5/QtSerialPort/QSerialPortInfo \
   /usr/include/x86_64-linux-gnu/qt5/QtSerialPort/qserialport.h \

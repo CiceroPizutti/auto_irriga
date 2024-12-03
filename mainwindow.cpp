@@ -1,11 +1,18 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include <QSettings>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , irrigacaoLigada(false) // Inicializa a irrigação como desligada
+    , networkManager(new QNetworkAccessManager(this))
 {
     ui->setupUi(this);
 
@@ -32,14 +39,16 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     ui->irrigar_pushButton->setText("Ligar a Irrigação");
+
+    // Verifica previsão de chuva periodicamente
+    connect(&weatherTimer, &QTimer::timeout, this, &MainWindow::checkWeatherForecast);
+    weatherTimer.start(3600000); // Verifica a cada 1 hora
+
+    checkWeatherForecast(); // Primeira verificação ao iniciar
 }
 
 MainWindow::~MainWindow()
 {
-    // Removido o código de salvamento automático do histórico de umidade
-    // QSettings settings("save_last");
-    // settings.setValue("ultimoValorSlider", ui->porcento_horizontalSlider->value());
-
     delete ui;
 }
 
@@ -67,7 +76,7 @@ void MainWindow::readSerialData()
 
             // Compara a umidade lida com o valor do QSlider
             int sliderValue = ui->porcento_horizontalSlider->value();
-            if (humidity < sliderValue && irrigacaoLigada) {
+            if (humidity < sliderValue && irrigacaoLigada && !chuvaPrevista) {
                 // Enviar '1' para o Arduino para ligar o relé
                 serial->write("1");
             } else {
@@ -121,4 +130,43 @@ void MainWindow::exportarCSV()
 void MainWindow::on_exportar_pushButton_clicked()
 {
     exportarCSV();
+}
+
+void MainWindow::checkWeatherForecast()
+{
+    QString apiKey = "6f0ac825b28eae56f29d6858168bc641"; // Substitua pela sua chave da API
+    QString city = "Passo Fundo,BR";   // Substitua pela cidade desejada
+    QString url = QString("https://api.openweathermap.org/data/2.5/weather?q=%1&appid=%2&units=metric&lang=pt_br")
+                      .arg(city)
+                      .arg(apiKey);
+
+    QNetworkRequest request((QUrl(url)));
+    QNetworkReply *reply = networkManager->get(request);
+
+    connect(reply, &QNetworkReply::finished, this, [this, reply]() {
+        if (reply->error() == QNetworkReply::NoError) {
+            QJsonDocument doc = QJsonDocument::fromJson(reply->readAll());
+            QJsonObject obj = doc.object();
+
+            if (obj.contains("weather")) {
+                QJsonArray weatherArray = obj.value("weather").toArray();
+                if (!weatherArray.isEmpty()) {
+                    QString description = weatherArray.first().toObject().value("description").toString();
+                    chuvaPrevista = description.contains("chuva", Qt::CaseInsensitive);
+
+                    if (chuvaPrevista) {
+                        ui->clima_label->setText("Previsão de chuva! Irrigação desativada automaticamente.");
+                    } else {
+                        ui->clima_label->setText("Sem previsão de chuva. Monitore o sistema.");
+                    }
+                }
+            }
+        } else {
+            qDebug() << "Erro na API de clima:" << reply->errorString();
+            chuvaPrevista = false; // Em caso de erro, assume que não há chuva prevista
+            ui->clima_label->setText("Erro ao obter informações meteorológicas.");
+        }
+
+        reply->deleteLater();
+    });
 }

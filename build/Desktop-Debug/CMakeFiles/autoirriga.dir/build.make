@@ -133,6 +133,7 @@ autoirriga: CMakeFiles/autoirriga.dir/mainwindow.cpp.o
 autoirriga: CMakeFiles/autoirriga.dir/build.make
 autoirriga: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.13
 autoirriga: /usr/lib/x86_64-linux-gnu/libQt5SerialPort.so.5.15.13
+autoirriga: /usr/lib/x86_64-linux-gnu/libQt5Network.so.5.15.13
 autoirriga: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.13
 autoirriga: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.13
 autoirriga: CMakeFiles/autoirriga.dir/link.txt

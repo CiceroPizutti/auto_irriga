@@ -105,6 +105,14 @@
 				},
 				{
 					"backtrace" : 3,
+					"define" : "QT_NETWORK_LIB"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "QT_SERIALPORT_LIB"
+				},
+				{
+					"backtrace" : 3,
 					"define" : "QT_WIDGETS_LIB"
 				}
 			],
@@ -138,6 +146,16 @@
 					"backtrace" : 3,
 					"isSystem" : true,
 					"path" : "/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/usr/include/x86_64-linux-gnu/qt5/QtSerialPort"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/usr/include/x86_64-linux-gnu/qt5/QtNetwork"
 				}
 			],
 			"language" : "CXX",
@@ -200,12 +218,22 @@
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 3,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libQt5SerialPort.so.5.15.13",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libQt5Network.so.5.15.13",
+				"role" : "libraries"
+			},
+			{
 				"backtrace" : 9,
 				"fragment" : "/usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.13",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 9,
+				"backtrace" : 3,
 				"fragment" : "/usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.13",
 				"role" : "libraries"
 			}
