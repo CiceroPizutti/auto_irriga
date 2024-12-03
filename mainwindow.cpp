@@ -19,10 +19,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Configuração da porta serial
     serial = new QSerialPort(this);
-    serial->setPortName("/dev/ttyACM0");  // Altere para o nome correto da porta
+    serial->setPortName("/dev/ttyACM2");  // Altere para o nome correto da porta
     serial->setBaudRate(QSerialPort::Baud9600);
 
-    if (serial->open(QIODevice::ReadWrite)) {  // Mude para ReadWrite
+    if (serial->open(QIODevice::ReadWrite)) {
         // Configurar temporizador para ler os dados periodicamente
         timer = new QTimer(this);
         connect(timer, &QTimer::timeout, this, &MainWindow::readSerialData);
@@ -36,9 +36,9 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    // Salva o valor atual do slider ao fechar o programa
-    QSettings settings("save_last");
-    settings.setValue("ultimoValorSlider", ui->porcento_horizontalSlider->value());
+    // Removido o código de salvamento automático do histórico de umidade
+    // QSettings settings("save_last");
+    // settings.setValue("ultimoValorSlider", ui->porcento_horizontalSlider->value());
 
     delete ui;
 }
@@ -53,7 +53,8 @@ void MainWindow::on_porcento_horizontalSlider_valueChanged(int value)
     settings.setValue("ultimoValorSlider", value);
 }
 
-void MainWindow::readSerialData() {
+void MainWindow::readSerialData()
+{
     if (serial->canReadLine()) {
         QString line = serial->readLine();
         bool ok;
@@ -61,9 +62,12 @@ void MainWindow::readSerialData() {
         if (ok) {
             ui->progressBar->setValue(humidity); // Atualiza o QProgressBar
 
+            // Armazena no histórico
+            historicoUmidade.append(qMakePair(QDateTime::currentDateTime(), humidity));
+
             // Compara a umidade lida com o valor do QSlider
             int sliderValue = ui->porcento_horizontalSlider->value();
-            if (humidity < sliderValue && (irrigacaoLigada == true)) {
+            if (humidity < sliderValue && irrigacaoLigada) {
                 // Enviar '1' para o Arduino para ligar o relé
                 serial->write("1");
             } else {
@@ -80,9 +84,41 @@ void MainWindow::on_irrigar_pushButton_clicked()
 
     if (irrigacaoLigada) {
         ui->irrigar_pushButton->setText("Irrigação Ligada");
-        ui->irrigar_pushButton->setStyleSheet("color: lightgreen; font-weight: bold;"); // Cor do texto
+        ui->irrigar_pushButton->setStyleSheet("color: lightgreen; font-weight: bold;");
     } else {
         ui->irrigar_pushButton->setText("Ligar a Irrigação");
-        ui->irrigar_pushButton->setStyleSheet(""); // Reseta o estilo
+        ui->irrigar_pushButton->setStyleSheet("");
     }
+}
+
+void MainWindow::exportarCSV()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, "Salvar Histórico", "", "CSV Files (*.csv)");
+
+    if (fileName.isEmpty()) {
+        return;
+    }
+
+    QFile file(fileName);
+    if (file.open(QIODevice::WriteOnly)) {
+        QTextStream stream(&file);
+
+        // Cabeçalho
+        stream << "Data/Hora,Umidade (%)\n";
+
+        // Dados
+        for (const auto &entry : historicoUmidade) {
+            stream << entry.first.toString("yyyy-MM-dd HH:mm:ss") << "," << entry.second << "\n";
+        }
+
+        file.close();
+        QMessageBox::information(this, "Exportação", "Histórico exportado com sucesso!");
+    } else {
+        QMessageBox::warning(this, "Erro", "Não foi possível salvar o arquivo.");
+    }
+}
+
+void MainWindow::on_exportar_pushButton_clicked()
+{
+    exportarCSV();
 }

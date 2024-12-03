@@ -34,6 +34,7 @@ public:
     QSlider *porcento_horizontalSlider;
     QLabel *porcentagem_label;
     QPushButton *irrigar_pushButton;
+    QPushButton *exportar_pushButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -91,6 +92,11 @@ public:
 
         verticalLayout->addWidget(irrigar_pushButton);
 
+        exportar_pushButton = new QPushButton(centralwidget);
+        exportar_pushButton->setObjectName(QString::fromUtf8("exportar_pushButton"));
+
+        verticalLayout->addWidget(exportar_pushButton);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -112,6 +118,7 @@ public:
         ativar_status_label->setText(QCoreApplication::translate("MainWindow", "Ativar irriga\303\247\303\243o quando umidade for menor que (%)", nullptr));
         porcentagem_label->setText(QString());
         irrigar_pushButton->setText(QString());
+        exportar_pushButton->setText(QCoreApplication::translate("MainWindow", "Exportar CVS", nullptr));
     } // retranslateUi
 
 };

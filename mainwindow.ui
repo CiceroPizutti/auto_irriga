@@ -87,6 +87,13 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="exportar_pushButton">
+      <property name="text">
+       <string>Exportar CVS</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
