@@ -112,12 +112,16 @@ void MainWindow::exportarCSV()
     if (file.open(QIODevice::WriteOnly)) {
         QTextStream stream(&file);
 
-        // Cabeçalho
-        stream << "Data/Hora,Umidade (%)\n";
+        // Cabeçalho com colunas separadas para ano, mês, dia e umidade
+        stream << "Ano,Mes,Dia,Umidade (%)\n";
 
         // Dados
         for (const auto &entry : historicoUmidade) {
-            stream << entry.first.toString("yyyy-MM-dd HH:mm:ss") << "," << entry.second << "\n";
+            QDateTime dateTime = entry.first;
+            stream << dateTime.date().year() << ","
+                   << dateTime.date().month() << ","
+                   << dateTime.date().day() << ","
+                   << entry.second << "\n";
         }
 
         file.close();
@@ -139,7 +143,7 @@ void MainWindow::checkWeatherForecast()
     QString url = QString("https://api.openweathermap.org/data/2.5/weather?q=%1&appid=%2&units=metric&lang=pt_br")
                       .arg(city)
                       .arg(apiKey);
-
+    // Usa o QNetworkAccessManager
     QNetworkRequest request((QUrl(url)));
     QNetworkReply *reply = networkManager->get(request);
 
