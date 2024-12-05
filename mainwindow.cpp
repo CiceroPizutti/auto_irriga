@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Configuração da porta serial
     serial = new QSerialPort(this);
-    serial->setPortName("/dev/ttyACM2");  // Altere para o nome correto da porta
+    serial->setPortName("/dev/ttyACM0");  // Altere para o nome correto da porta
     serial->setBaudRate(QSerialPort::Baud9600);
 
     if (serial->open(QIODevice::ReadWrite)) {
